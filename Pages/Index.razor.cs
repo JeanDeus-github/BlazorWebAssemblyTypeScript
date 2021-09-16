@@ -13,4 +13,12 @@ public partial class Index: ComponentBase
 
     }
 
+    protected async override void OnAfterRender(bool firstRender)
+    {
+      if (firstRender)
+      {
+          await IJSRuntime.InvokeAsync<string>("InitDiv");
+      }
+    }
+
 }
